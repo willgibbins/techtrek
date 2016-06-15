@@ -80,6 +80,10 @@ inquirer.prompt([
 
       return '@' + answer;
     }
+  }, {
+    type: 'input',
+    name: 'photo',
+    message: 'What is your ticket number?'
   }])
   .then((answers) => {
     setTimeout(function () {
@@ -90,7 +94,7 @@ inquirer.prompt([
 
       setTimeout(function () {
         spinner.stop();
-        exec(`cd python; python2 image_manip.py ${answers.quote} dry_run ${answers.twitter} ../TechTrek2016/nate.jpg ${answers.sepia} ${answers.color} &`);
+        exec(`cd python; python2 image_manip.py ${answers.quote} dry_run ${answers.twitter} ../TechTrek2016/${answers.photo}.jpg ${answers.sepia} ${answers.color} &`);
       }, 3000);
     }, 6000);
 
