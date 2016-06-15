@@ -73,6 +73,10 @@ inquirer.prompt([
     }
   }, {
     type: 'input',
+    name: 'photo',
+    message: 'What is your ticket number?'
+  }, {
+    type: 'input',
     name: 'twitter',
     message: 'What is your twitter handle?',
     filter: function (answer) {
@@ -80,10 +84,6 @@ inquirer.prompt([
 
       return '@' + answer;
     }
-  }, {
-    type: 'input',
-    name: 'photo',
-    message: 'What is your ticket number?'
   }])
   .then((answers) => {
     setTimeout(function () {
