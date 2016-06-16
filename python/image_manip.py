@@ -130,8 +130,8 @@ def main():
             file = open('new.png', 'rb')
             data = file.read()
             r = api.request('statuses/update_with_media',
-                            {'status': 'Hello World from The Forge by Pillar (@agilesoftware) during #A2TechTrek 2016- '+args.twitter_handle[0]},
-                            {'media[]': data})
+                            { 'status': 'Hello Ann Arbor from the Forge by Pillar #A2TechTrek #PillarPlay ' + args.twitter_handle[0] },
+                            { 'media[]': data })
             print(r.status_code)
         else:
             final_image.show()
