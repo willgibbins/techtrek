@@ -68,6 +68,7 @@ inquirer.prompt([
 
       setTimeout(function () {
         spinner.stop();
+        console.log('\n');
         exec(`cd python; python2 image_manip.py ${answers.quote} dry_run ${answers.twitter} ../TechTrek2016/${answers.photo}.jpg ${answers.sepia} white &`);
       }, 3000);
     }, 6000);
@@ -80,6 +81,7 @@ inquirer.prompt([
 
       setTimeout(function () {
         spinner.stop();
+        console.log('\n');
         loop(0);
       }, 3000);
     }, 0)
