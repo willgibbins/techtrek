@@ -2,6 +2,7 @@ from PIL import Image, ImageFilter, ImageOps
 from TwitterAPI import TwitterAPI
 import argparse
 import sys
+import yaml
 
 def make_linear_ramp(white):
     # putpalette expects [r,g,b,r,g,b,...]
@@ -125,8 +126,9 @@ def main():
         final_image.save("new.png", "PNG")
 
         if args.dry_run[0] not in "dryrun":
-
-            api = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
+            with open("../TechTrek2016/key.yaml") as f:
+                k = yaml.load(f.read())
+            api = TwitterAPI(k['CONSUMER_KEY'], k['CONSUMER_SECRET'], k['ACCESS_TOKEN_KEY'], k['ACCESS_TOKEN_SECRET'])
             file = open('new.png', 'rb')
             data = file.read()
             r = api.request('statuses/update_with_media',
