@@ -27,6 +27,12 @@ inquirer.prompt([
     }, {
       name: 'Dude, where\'s my boat?',
       value: 'DudeBoat.png'
+    }, {
+      name: 'Very amused!',
+      value: 'VeryAmused.png'
+    }, {
+      name: 'Enjoying the ride!',
+      value: 'EnjoyingTheRide.png'
     }]
   }, {
     type: 'list',
@@ -39,38 +45,6 @@ inquirer.prompt([
       name: 'Sepia',
       value: 'sepia'
     }]
-  },   {
-    type: 'list',
-    name: 'color',
-    message: 'What color text would you like?',
-    choices: [{
-      name: 'White',
-      value: 'white'
-    }, {
-      name: 'Black',
-      value: 'black'
-    }, {
-      name: 'Blue',
-      value: 'blue'
-    }, {
-      name: 'Green',
-      value: 'green'
-    }, {
-      name: 'Red',
-      value: 'red'
-    }, {
-      name: 'Yellow',
-      value: 'yellow'
-    }, {
-      name: 'Purple',
-      value: 'purple'
-    }, {
-      name: 'Orange',
-      value: 'orange'
-    }],
-    when: function (answers) {
-      return answers.sepia === 'modern';
-    }
   }, {
     type: 'input',
     name: 'photo',
@@ -94,7 +68,7 @@ inquirer.prompt([
 
       setTimeout(function () {
         spinner.stop();
-        exec(`cd python; python2 image_manip.py ${answers.quote} dry_run ${answers.twitter} ../TechTrek2016/${answers.photo}.jpg ${answers.sepia} ${answers.color} &`);
+        exec(`cd python; python2 image_manip.py ${answers.quote} dry_run ${answers.twitter} ../TechTrek2016/${answers.photo}.jpg ${answers.sepia} white &`);
       }, 3000);
     }, 6000);
 
